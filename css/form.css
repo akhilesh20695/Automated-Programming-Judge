@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+body ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-family: 'Source Sans Pro', sans-serif;
+ color: rgba(74,110,110,1);
+  font-weight: 300;
+}
+body :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-family: 'Source Sans Pro', sans-serif;
+ color: rgba(74,110,110,1);
+  opacity: 1;
+  font-weight: 300;
+}
+body ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-family: 'Source Sans Pro', sans-serif;
+ color: rgba(74,110,110,1);
+  opacity: 1;
+  font-weight: 300;
+}
+body :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: rgba(74,110,110,1);
+  font-weight: 300;
+}
+.popup label{
+  text-align: center;
+  display: block;
+}
+.wrapper.form-success .container h1 {
+  -webkit-transform: translateY(85px);
+      -ms-transform: translateY(85px);
+          transform: translateY(85px);
+}
+.container {
+ max-width: 400px;
+padding: 80px 0px;
+text-align: center;
+background-color: #b36666;
+
+margin: 30px auto;
+    box-shadow: 0px 1.5px 3px rgba(190, 190, 190, 0.4) inset, 0px 0px 0px 2px skyblue;
+}
+.container h1 {
+  font-size: 60px;
+  color: black;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 500;
+}
+.button{
+   padding: 10px 15px;
+  margin: 0 auto 10px auto;
+   display: block;
+}
+form {
+  padding: 30px 0;
+  position: relative;
+  z-index: 2;
+  
+}
+form input {
+  appearance: none;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: whitesmoke;
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+ color:black;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  font-weight: 500;
+}
+form input:hover {
+  background-color: white;
+}
+form input:focus {
+  background-color: white;
+  color:black;
+  font-weight: 500;
+  border: 2px solid black;
+
+}
+form button {
+  appearance: none;
+  outline: 0;
+  background-color: rgba(123,178,175,0.8);
+    opacity: 0.8;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+form button:hover {
+ opacity:1;
+}
+form a{
+ color: #000;
+ text-align:center;
+  }

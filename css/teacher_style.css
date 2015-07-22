@@ -1,0 +1,119 @@
+label{
+  margin-left: 60px;
+}
+select{
+   outline: 0px none;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #F5F5F5;
+    width: 380px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: -30px auto 0px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #7BB2AF;
+    transition-duration: 0.25s;
+    font-weight: 500;
+}
+   .forgot{
+     margin: 200px auto;
+width: 400px;
+background: none repeat scroll 0% 0% #FFF;
+padding: 20px;
+border: 1px solid #CCC;
+border-radius: 5px;
+   }
+form{
+  padding: 50px 0px 20px 0;
+position: relative;
+z-index: 2;
+width: 400px;
+top: 30%;
+}
+textarea{
+   outline: 0px none;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #F5F5F5;
+    width: 350px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: -30px auto 0px;
+    display: block;
+}
+.radio input{
+    position: relative;
+top: 14px;
+right: 195px;
+}
+.form_wrapper{
+    width: 800px;
+    margin: 0px auto;
+    position: relative;
+    top: 10%;
+    background-color:white;
+}
+.check {
+    display: inline-block;
+  float: right;
+}
+.check input {
+   position: relative;
+top: 19px;
+right: 195px;
+}
+
+.radio{
+   display: inline;
+  float: right;
+}
+form input{
+    outline: 0px none;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #F5F5F5;
+    width: 350px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: -30px auto 0px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #7BB2AF;
+    transition-duration: 0.25s;
+    font-weight: 500;
+}
+
+form input:hover {
+  background-color: white;
+}
+form input:focus {
+  background-color: white;
+  color:rgba(123,178,175,1);
+  font-weight: 500;
+  box-shadow: inset 1px 1px 1px black;
+}
+form button {
+  appearance: none;
+  outline: 0;
+  margin: 0 auto 10px auto;
+  display: block;
+  background-color: rgba(123,178,175,0.8);
+    opacity: 0.8;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 340px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+form button:hover {
+ opacity:1;
+}
+form a{
+ color: #000;
+ text-align:center;
+  }
