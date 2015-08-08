@@ -23,6 +23,7 @@ if(!isset($_SESSION['email']))
   $result=mysql_query($query);
   $row=mysql_fetch_array($result);
   $filename=$row['studentid']."_dp";
+  $id=$row['studentid'];
   ?>
   <ul><p><a href="homepage_student.php">NAME</a></p>
     

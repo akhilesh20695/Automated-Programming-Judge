@@ -28,11 +28,35 @@ if(!isset($_SESSION['email']))
 	$query="SELECT * from student where semail='$mail'";
 	$result=mysql_query($query);
 	$row=mysql_fetch_array($result);
-	$id=$row['studentid'];
 	$filename=$row['studentid']."_dp";
+	$sidclone=$row['studentid'];
 	?>
 	<ul><p><a href="homepage_student.php">NAME</a></p>
-		<li style=" margin:-3% 1% 1% 0%;"><a href="edit-profile.php"><?php echo '<img src="pictures/'.$filename.'.jpg" >';?><p  class="usrname"><?php echo $row['fname'];?> </p></a></li>
+		
+		<?php
+		if(file_exists('pictures/'.$filename.'.jpg'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.jpg" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		else if(file_exists('pictures/'.$filename.'.gif'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.gif" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		else if(file_exists('pictures/'.$filename.'.png'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.png" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		} 
+		else
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="icons/user.png"><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		?>
+		<ul>
+				<li><a href="edit-profile.php">My Profile</a></li>
+				<li><a href="table.php">My submissions</a></li>
+		</ul>
+
+		</li>
 			<li style=" margin:-3% 1% 1% 0%;"><a href="signout-script.php">Log Out</a></li>
 	</ul>
 </div>
@@ -76,19 +100,19 @@ $item=$item+1;
 	<h2>Where you Stand!</h2>
 	<?php
 	$mail="$_SESSION[email]";
-	$result1=mysql_query("SELECT count(*) as attempts FROM points where s_id='$id'");
+	$result1=mysql_query("SELECT count(*) as attempts FROM points where s_id='$sidclone'");
 	$tattempts=mysql_fetch_assoc($result1);
 
-	$result2=mysql_query("SELECT count(*) as correctattempts FROM points where s_id='$id' AND answer_status=1");
+	$result2=mysql_query("SELECT count(*) as correctattempts FROM points where s_id='$sidclone' AND answer_status=1");
 	$cattempts=mysql_fetch_assoc($result2);
 
 
 
-	$query="SELECT SUM(number) AS score, FIND_IN_SET ( score, ( SELECT GROUP_CONCAT( score ORDER BY score DESC ) FROM scores )) AS rank FROM points WHERE s_id =  '$id'";
+	//$query="SELECT SUM(number) AS score, FIND_IN_SET ( score, ( SELECT GROUP_CONCAT( score ORDER BY score DESC ) FROM scores )) AS rank FROM points WHERE s_id =  '$id'";
 	$result3=mysql_query($query);
-	$rank=mysql_fetch_assoc($result3);
+	//$rank=mysql_fetch_assoc($result3);
 
-	echo "<h1>RANK: ".$rank['total']."</h1>";
+	//echo "<h1>RANK: ".$rank['total']."</h1>";
 	echo "<h3>Total attempts: ".$tattempts['attempts']."</h3>";
 	echo "<h3>Total Correct: ".$cattempts['correctattempts']."</h3>";
 	?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once '../connection-script.php';
+include_once 'connection-script.php';
 session_start();
 if(!isset($_SESSION['email']))
 {
@@ -12,27 +12,53 @@ if(!isset($_SESSION['email']))
 <head>
 	<meta charset="utf-8">
 	<title>Add Questions</title>
-	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 	<head>
 <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/teacher_style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/teacher_style.css">
 </head>
 <body style="background-color:whitesmoke; height:100%;">
 
 <div id="header" class="header">
 	<?php
 	$mail=$_SESSION['email'];
-	$query="SELECT * from teacher where email='$mail'";
+	$query="SELECT * from student where semail='$mail'";
 	$result=mysql_query($query);
 	$row=mysql_fetch_array($result);
+	$filename=$row['studentid']."_dp";
+	 $id=$row['studentid'];
 	?>
-	<ul><p><a href="../homepage_teacher.php">NAME</a></p>
-			<li style=" margin:-3% 1% 1% 0%;"><a href="edit-profile.php"><img src="../icons/user.png" ><p  class="usrname"><?php echo $row['fname'];?> </p></a></li>
-			<li style=" margin:-3% 1% 1% 0%;"><a href="signout-script.php">Log Out</a></li>
+	<ul><p><a href="homepage_student.php">NAME</a></p>
+		
+		<?php
+		if(file_exists('pictures/'.$filename.'.jpg'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.jpg" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		else if(file_exists('pictures/'.$filename.'.gif'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.gif" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		else if(file_exists('pictures/'.$filename.'.png'))
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="pictures/'.$filename.'.png" ><p  class="usrname">'.$row['fname'].'</p></a>';
+		} 
+		else
+		{
+			echo '<li style="margin:-3% 1% 1% 0%;"><a href="#"><img src="icons/user.png"><p  class="usrname">'.$row['fname'].'</p></a>';
+		}
+		?>
+		<ul>
+				<li><a href="edit-profile.php">My Profile</a></li>
+				<li><a href="table.php">My submissions</a></li>
+		</ul>
 
+		</li>
+			<li style=" margin:-3% 1% 1% 0%;"><a href="signout-script.php">Log Out</a></li>
 	</ul>
 </div>
+
 
 </div>
 <div id="form_wrapper" class="form_wrapper">
@@ -63,15 +89,12 @@ if(!isset($_SESSION['email']))
 		<textarea name="test_cases" id="test_cases" rows="10" cols="60"></textarea>
 		<br><label>Sample Output</label>
 		<textarea name="output" id="output" rows="10" cols="60"></textarea>
-		<br><label> Maximum Points:</label>
-		 <input type="number" name="points" id="points" min="1" max="100" step="1">
-		<br><label class="check"><input type="checkbox" name="add_more">Add more test cases</label><br>
+		<br><label class="check"><input type="checkbox" name="add_more" id="add_more" onchange="show()" style="border:0px solid;">Add more test cases</label><br>
 		<div class="moretestcases" id="moretestcases" style="display:none;">
 			<br><label>Sample Input</label>
 			<textarea name="test_cases" id="test_cases" rows="10" cols="60"></textarea>
 			<br><label>Sample Output</label>
 			<textarea name="output" id="output" rows="10" cols="60"></textarea>
-			<br><label class="check"><input type="checkbox" name="add_more">Add more test cases</label><br>
 		</div>	
 		<button type="submit" id="question-button">Add Question</button><br>
 	</form>
@@ -84,6 +107,13 @@ if(!isset($_SESSION['email']))
 </html>
 
 <script>
+function show()
+{
+	var elems = document.getElementById('moretestcases');
+	elems.style.display="block";
+}
+
+
 $("#addquesform").submit(function(event) {
 
                 event.preventDefault();
@@ -94,7 +124,5 @@ $("#addquesform").submit(function(event) {
                 });
             });
 
-$("#add_more").checked(function(event){
-	$("#moretestcases").style.display="inline";
-});
+
 </script>

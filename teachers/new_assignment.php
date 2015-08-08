@@ -59,9 +59,22 @@ label{
 		<br><label>Output</label>
 		<textarea name="output" rows="10" cols="30"></textarea>
 	<br><label class="check"><input type="checkbox" name="add_more">Add more test cases</label><br>
+	<div class="moretestcases" id="moretestcases" style="display:none;">
+			<br><label>Sample Input</label>
+			<textarea name="test_cases" id="test_cases" rows="10" cols="60"></textarea>
+			<br><label>Sample Output</label>
+			<textarea name="output" id="output" rows="10" cols="60"></textarea>
+			<br><label class="check"><input type="checkbox" name="add_more">Add more test cases</label><br>
+		</div>	
 		<button type="submit" id="question-button">Create Assignment</button><br>
 	</form>
 </div>
 
 </body>
 </html>
+
+<script>
+$("#add_more").checked(function(event){
+	$("#moretestcases").style.display="inline";
+});
+</script>

@@ -79,7 +79,7 @@ if(!isset($_SESSION['email']))
 		<br><h2><a href="leaderboard.php">Leaderboard</a>
 		</li>
 		<li class="menu performance"><img src="icons/evaluate.png">
-		<br><h2>add a<br>question for <r>practice</h2>
+		<br><h2><a href="add-question-student.php">add a<br>question for <r>practice</a></h2>
 					</li>
 		<li class="menu competition"><img src="icons/compete.png">
 		<br><h2><a href="competition.php">Join<br> Competition</a></h2>

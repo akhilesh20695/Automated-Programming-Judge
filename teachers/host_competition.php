@@ -50,7 +50,7 @@ if(!isset($_SESSION['email']))
 		  <input type="time" name="last_time" value="12:00 AM">
 		  <br><label>Competiton Details</label>
 		<textarea name="question" rows="10" cols="30"></textarea>
-		<br><button type="submit" id="query-button">See Performance</button><br>
+		<br><button type="submit" id="query-button">Add Competition</button><br>
 	</form>
 </div>
 
